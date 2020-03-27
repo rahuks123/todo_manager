@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     render plain: Todo.all.map { |todo| todo.to_pleasant_string }.join("\n")
   end
@@ -18,5 +19,14 @@ class TodosController < ApplicationController
       completed: false,
     )
     render plain: "the new record is created with the id #{new_todo.id}"
+  end
+
+  def update
+    id = params[:id]
+    completed = params[:completed]
+    todo = Todo.find(id)
+    todo.completed = completed
+    todo.save!
+    render plain: "the change has been updated"
   end
 end
