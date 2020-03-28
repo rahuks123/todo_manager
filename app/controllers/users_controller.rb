@@ -16,4 +16,10 @@ class UsersController < ApplicationController
     )
     render plain: "the new record is created with id #{new_user.id} "
   end
+
+  def show
+    id = params[:id]
+    user = User.find(id)
+    render plain: user.display
+  end
 end
