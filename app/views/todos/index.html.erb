@@ -1,0 +1,7 @@
+<h1>hi.this is finally going to work</h1>
+<p> the time and date is <%= DateTime.now.to_s(:long) %></p>
+
+<p> the todos count is <%= Todo.count %></p>
+<% Todo.all.each do |todo|%>
+<p><%=todo.todo_text%></p>
+<% end %>
