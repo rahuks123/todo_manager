@@ -1,7 +1,26 @@
-<h1>hi.this is finally going to work</h1>
-<p> the time and date is <%= DateTime.now.to_s(:long) %></p>
+<main>
+  <article>
+    <h1 class="TodoPage-title">My To-do List</h1>
+      <section class="AddTodo">
+      <input class="AddTodo-text" type="text" placeholder="Whats next" />
+      <input class="AddTodo-date" type="date" />
+      <input class="AddTodo-button" type="button" value="ADD" />
+      </section>
 
-<p> the todos count is <%= Todo.count %></p>
-<% Todo.all.each do |todo|%>
-<p><%=todo.todo_text%></p>
-<% end %>
+      <%= render partial: "todo-section", locals: {
+        section_title: "Overdue",
+        todos: Todo.overdue,
+        show_due_date: true} %>
+
+      <%= render partial: "todo-section", locals: {
+        section_title: "Due_today",
+        todos: Todo.due_today,
+        show_due_date: false} %>
+
+      <%= render partial: "todo-section", locals: {
+        section_title: "Due_later",
+        todos: Todo.due_later,
+        show_due_date: true} %>
+
+  </article>
+</main>
