@@ -20,7 +20,7 @@ class TodosController < ApplicationController
       due_date: due_date,
       completed: false,
     )
-    render plain: "the new record is created with the id #{new_todo.id}"
+    redirect_to todos_path
   end
 
   def update
