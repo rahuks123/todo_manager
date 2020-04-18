@@ -5,19 +5,24 @@
   </div>
   <ul>
     <% todos.each do |todo| %>
-      <div class="TodoItem-container">
+      <label class="TodoItem-container">
+        <%= form_with(url: "/todos/#{todo.id}" , method: "put")do %>
+          <input class="TodoItem-checkbox"
+                  name=completed
+                  type="checkbox" <%= todo.completed ? "checked" : ""%>
+                  onclick= "this.form.submit()"
+          />
+        <% end %>
         <% if todo.completed%>
-          <input class="TodoItem-checkbox" type="checkbox" checked>
           <p style="text-decoration-line: line-through"><%= todo.todo_text%></p>
         <% else %>
-          <input class="TodoItem-checkbox" type="checkbox">
           <p><%= todo.todo_text%></p>
         <% end %>
         <% if show_due_date %>
           <p class="TodoItem-date"><%= todo.due_date.to_s (:short) %></p>
         <% end %>
         <a href="javascript:void(0)"><img class="TodoItem-delete"  src="delete.png"  /></a>
-      </div>
+      </label>
     <% end %>
   </ul>
 </section>
