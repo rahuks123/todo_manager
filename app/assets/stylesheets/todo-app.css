@@ -60,12 +60,12 @@ body {
 }
 .TodoItem-container {
   display: flex;
+  align-items: center;
   padding: 2px 8px;
   font-size: 20px;
   line-height: 1.2;
   margin-top: 10px;
   margin-left: 32px;
-  align-items: center;
 }
 .TodoSectionTitle-remainingCount {
   margin-left: 4px;
