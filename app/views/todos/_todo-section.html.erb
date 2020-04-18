@@ -3,7 +3,7 @@
     <h2 class="TodoSectionTitle-text"><%= section_title %></h2>
     <p class="TodoSectionTitle-remainingCount"><%= todos.completed.count %>/<%= todos.count %></p>
   </div>
-    <ul>
+  <ul>
     <% todos.each do |todo| %>
       <div class="TodoItem-container">
         <% if todo.completed%>
@@ -12,11 +12,11 @@
         <% else %>
           <input class="TodoItem-checkbox" type="checkbox">
           <p><%= todo.todo_text%></p>
-         <% end %>
+        <% end %>
         <% if show_due_date %>
           <p class="TodoItem-date"><%= todo.due_date.to_s (:short) %></p>
         <% end %>
-        <img  class="TodoItem-delete" src="delete.png"  />
+        <a href="javascript:void(0)"><img class="TodoItem-delete"  src="delete.png"  /></a>
       </div>
     <% end %>
   </ul>
