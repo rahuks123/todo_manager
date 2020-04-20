@@ -1,5 +1,3 @@
-class User < ActiveRecord::Base
-  def display
-    "#{id} #{email} #{password} #{name}"
-  end
+class User < ApplicationRecord
+  has_many :todos
 end
