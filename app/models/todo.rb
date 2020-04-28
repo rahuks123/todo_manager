@@ -1,6 +1,10 @@
 class Todo < ActiveRecord::Base
   belongs_to :user
 
+  validates :todo_text, presence: true
+  validates :todo_text, length: { minimum: 2 }
+  validates :due_date, presence: true
+
   def to_pleasant_string
     is_completed = completed ? "[x]" : "[]"
     "#{id} #{is_completed} #{todo_text} #{due_date}"
