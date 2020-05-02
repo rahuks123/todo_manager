@@ -6,13 +6,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create!(
+    new_user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
       password: params[:password],
     )
-    session[:current_user_id] = user.id
-    redirect_to "/"
+    if new_user.save
+      session[:current_user_id] = new_user.id
+      redirect_to "/"
+    else
+      flash[:error] = new_user.errors.full_messages.join(", ")
+      redirect_to users_path
+    end
   end
 end

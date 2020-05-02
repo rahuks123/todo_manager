@@ -18,7 +18,7 @@
         <% else %>
           <p><%= todo.todo_text%></p>
         <% end %>
-        <% if show_due_date %>
+        <% if show_due_datecheck_box_tag "product[user_ids][]",user.idcheck_box_tag "product[user_ids][]",user.id %>
           <p class="TodoItem-date"><%= todo.due_date.to_s (:short) %></p>
         <% end %>
         <a  href="javascript:void(0)" >
