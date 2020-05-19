@@ -18,9 +18,7 @@
     <% end %>
 
     <% if flash[:error] %>
-       <p class="flash-error">
-        <%= flash[:error] %>
-      </p>
+       <p class="flash-error"> <%= flash[:error] %> </p>
     <% end %>
     <%= yield %>
   </body>
