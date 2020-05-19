@@ -1,10 +1,8 @@
 <main>
   <article>
     <h1 class="TodoPage-title"> My To-do List </h1>
-      <%= form_with (url: "/todos", method: "post", class: "AddTodo") do %>
-        <%= text_field_tag 'todo_text', placeholder: 'Whats next',
-                           autofocus: true,
-                           class:'AddTodo-text' %>
+      <%= form_with(url: "/todos", method: "post", class: "AddTodo") do %>
+        <%= text_field_tag 'todo_text', nil, autofocus: true, class: 'AddTodo-text'%>
 
         <%= date_field_tag 'due_date', nil, class:"AddTodo-date" %>
 
@@ -25,6 +23,5 @@
         section_title: "Due_later",
         todos: @todos.due_later,
         show_due_date: true } %>
-
   </article>
 </main>
